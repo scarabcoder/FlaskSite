@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <style>
+    #profile-link {
+      font-size:13px;
+      text-align: right;
+      color:gray;
+
+    }
+    #handle {
+      color:gray;
+    }
+    </style>
+    {% if title %}
+    <title>{{ title }} - microblog</title>
+    {% else %}
+    <title>Welcome to microblog</title>
+    {% endif %}
+  </head>
+  <body>
+    <div>Microblog: <a href="/index">Home</a> | <a href="/login">Login</a></div>
+    <hr>
+    {% if user %}
+    <p id="profile-link">Logged in as {% if user.image %}<img src="{{user.image}}" height="20px" width="20px">{% else %}<img src="static/blank-profile.png" height="20px" width="20px">{% endif %}{{ user.nickname }} (@{{ user.handle }})</p>
+    {% endif %}
+    {% block content %}{% endblock %}
+  </body>
+</html>

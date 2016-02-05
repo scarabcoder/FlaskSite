@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+
+    {% for post in posts %}
+    <div><p>{% if post.author.image %}<img src="{{post.author.image}}" height="20px" width="20px">{% else %}<img src="static/blank-profile.png" height="20px" width="20px">{% endif %}{{ post.author.nickname }} <span id="handle">(@{{ post.author.handle }})</span> says: <b>{{ post.body }}</b></p></div>
+    {% endfor %}
+{% endblock %}
